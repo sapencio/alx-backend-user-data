@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
+"""Route module for the API.
 """
-Route module for the API
-"""
-import os 
+import os
 from os import getenv
 from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
@@ -25,7 +24,7 @@ if auth_type == 'basic_auth':
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """ Not found handler
+    """Not found handler.
     """
     return jsonify({"error": "Not found"}), 404
 
