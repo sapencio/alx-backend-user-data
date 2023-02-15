@@ -1,24 +1,23 @@
 #!/usr/bin/env python3
 """
-Declare a SQLAlchemy model named 'User' corresponding to a
-database table named "users"
+    SQLAlchemy ORM model 'User' for a database table named 'user'
 """
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import (
-    Column,
-    Integer,
-    String,
-)
 
+# A declarative base class to map a class to DB tables
 Base = declarative_base()
 
 
 class User(Base):
     """
-    Definition of class User
+        A User class that represents a db table 'user'
+        with the following columns defined
     """
-    __tablename__ = "users"
+    # describe the db table name
+    __tablename__ = 'users'
 
+    # describe the columns
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
     hashed_password = Column(String(250), nullable=False)
